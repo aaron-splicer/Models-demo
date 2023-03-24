@@ -448,7 +448,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" name="dateAllocated" type="xs:dateTime"/>
-      <xs:element name="discount" type="xs:double"/>
+      <xs:element name="discount" type="xs:double" maxOccurs="1" minOccurs="0"/>
       <xs:element minOccurs="0" name="inventoryId" type="xs:int"/>
       <xs:element minOccurs="0" name="order" type="tns:order">
         <xs:annotation>
@@ -530,7 +530,7 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="postedToInventory" type="xs:boolean"/>
+      <xs:element name="postedToInventory" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
       <xs:element minOccurs="0" name="product" type="tns:product">
         <xs:annotation>
           <xs:appinfo>
