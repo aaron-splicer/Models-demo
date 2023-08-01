@@ -146,7 +146,7 @@
       <xs:element minOccurs="0" name="taxes" type="xs:decimal"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="employee">
+  <xs:complexType name="employee">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -203,7 +203,7 @@
       <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="purchaseOrder">
+  <xs:complexType name="purchaseOrder">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -276,7 +276,7 @@
       <xs:element minOccurs="0" name="taxes" type="xs:decimal"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="inventoryTransaction">
+  <xs:complexType name="inventoryTransaction">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -337,7 +337,7 @@
       <xs:element minOccurs="0" name="transactionModifiedDate" type="xs:dateTime"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="inventoryTransactionType">
+  <xs:complexType name="inventoryTransactionType">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -367,7 +367,7 @@
       <xs:element minOccurs="0" name="typeName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="product">
+  <xs:complexType name="product">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -431,7 +431,7 @@
       <xs:element minOccurs="0" name="targetLevel" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderDetailer">
+  <xs:complexType name="orderDetailer">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -476,7 +476,7 @@
       <xs:element minOccurs="0" name="unitPrice" type="xs:decimal"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderDetailerStatus">
+  <xs:complexType name="orderDetailerStatus">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -506,7 +506,7 @@
       <xs:element minOccurs="0" name="statusName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="purchaseOrderDetailer">
+  <xs:complexType name="purchaseOrderDetailer">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -549,7 +549,7 @@
       <xs:element minOccurs="0" name="unitCost" type="xs:decimal"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="purchaseOrderStatus">
+  <xs:complexType name="purchaseOrderStatus">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -579,7 +579,7 @@
       <xs:element minOccurs="0" name="status" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="supplier">
+  <xs:complexType name="supplier">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -625,7 +625,7 @@
       <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="invoice">
+  <xs:complexType name="invoice">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -655,7 +655,7 @@
       <xs:element minOccurs="0" name="tax" type="xs:decimal"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderStatus">
+  <xs:complexType name="orderStatus">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -685,7 +685,7 @@
       <xs:element minOccurs="0" name="statusName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderTaxStatus">
+  <xs:complexType name="orderTaxStatus">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
@@ -715,7 +715,7 @@
       <xs:element minOccurs="0" name="taxStatusName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="shipper">
+  <xs:complexType name="shipper">
     <xs:annotation>
       <xs:appinfo>
         <spl:entity>
