@@ -1,765 +1,890 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
-  <xs:complexType name="customer">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="customers"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
+    <xs:complexType name="customer">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="customers"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="address" type="xs:string"/>
-      <xs:element minOccurs="0" name="attachments" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="businessPhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="city" type="xs:string"/>
-      <xs:element minOccurs="0" name="company" type="xs:string"/>
-      <xs:element minOccurs="0" name="countryRegion" type="xs:string"/>
-      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
-      <xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
-      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
-      <xs:element minOccurs="0" name="homePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="jobTitle" type="xs:string"/>
-      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
-      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-        		<spl:one2many fk="customer_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="attachments" nillable="true" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="businessPhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="company" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="countryRegion" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="faxNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="homePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="jobTitle" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="mobilePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                                            
+                    
+                    <xs:appinfo>
+                                                                        
+                        
+                        <spl:one2many fk="customer_id">
+                                                                                    
+                            
+                            <spl:ignoreOtherElements>
                                     "customer"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        	<xs:documentation>test documentation</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="stateProvince" type="xs:string"/>
-      <xs:element minOccurs="0" name="webPage" type="xs:string"/>
-      <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="order">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="orders"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                                                                                
+                        
+                        </spl:one2many>
+                                                                    
+                    
+                    </xs:appinfo>
+                                                            
+                    
+                    <xs:documentation>test documentation</xs:documentation>
+                                                        
+                
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="webPage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="order">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="orders"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="customer" type="tns:customer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="customer_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="employee" type="tns:employee">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="employee_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" type="tns:inventoryTransaction">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="customer_order_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:id/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="customer" nillable="true" type="tns:customer">
+                                
+                <xs:annotation>
+                                                            
+                    
+                    <xs:appinfo>
+                                                                        
+                        
+                        <spl:many2one fk="customer_id"/>
+                                                                    
+                    
+                    </xs:appinfo>
+                                                        
+                
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="employee" nillable="true" type="tns:employee">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="employee_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="customer_order_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "order"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="invoice" type="tns:invoice">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="order_id">
-              <spl:ignoreOtherElements>
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="invoice" nillable="true" type="tns:invoice">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="order_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "order"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element minOccurs="0" name="orderDate" type="xs:dateTime"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" type="tns:orderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="order_id">
-              <spl:ignoreOtherElements>
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:dateTime"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" nillable="true" type="tns:orderDetailer">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="order_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "order"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="orderStatus" type="tns:orderStatus">
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="orderStatus" nillable="true" type="tns:orderStatus">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="status_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="orderTaxStatus" nillable="true" type="tns:orderTaxStatus">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="tax_status_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="paidDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="paymentType" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipCity" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipCountryRegion" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipStateProvince" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shipZipPostalCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="shippedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="shipper" nillable="true" type="tns:shipper">
+                                
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="shipper_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+                            
+            </xs:element>
+            <xs:element minOccurs="0" name="shippingFee" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="taxRate" nillable="true" type="xs:double"/>
+            <xs:element minOccurs="0" name="taxes" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="employee">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="status_id"/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="employees"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="orderTaxStatus" type="tns:orderTaxStatus">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="tax_status_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="paidDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="paymentType" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipAddress" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipCity" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipCountryRegion" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipName" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipStateProvince" type="xs:string"/>
-      <xs:element minOccurs="0" name="shipZipPostalCode" type="xs:string"/>
-      <xs:element minOccurs="0" name="shippedDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="shipper" type="tns:shipper">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="shipper_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="shippingFee" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="taxRate" type="xs:double"/>
-      <xs:element minOccurs="0" name="taxes" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="employee">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="employees"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="address" type="xs:string"/>
-      <xs:element minOccurs="0" name="attachments" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="businessPhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="city" type="xs:string"/>
-      <xs:element minOccurs="0" name="company" type="xs:string"/>
-      <xs:element minOccurs="0" name="countryRegion" type="xs:string"/>
-      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
-      <xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
-      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
-      <xs:element minOccurs="0" name="homePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="jobTitle" type="xs:string"/>
-      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
-      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="employee_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="attachments" nillable="true" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="businessPhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="company" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="countryRegion" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="faxNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="homePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="jobTitle" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="mobilePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="employee_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "employee"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" type="tns:purchaseOrder">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="created_by">
-              <spl:ignoreOtherElements>
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="created_by">
+                            <spl:ignoreOtherElements>
                                     "createdBy"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="stateProvince" type="xs:string"/>
-      <xs:element minOccurs="0" name="webPage" type="xs:string"/>
-      <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="purchaseOrder">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="purchase_orders"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="webPage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="purchaseOrder">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="purchase_orders"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="approvedBy" type="xs:int"/>
-      <xs:element minOccurs="0" name="approvedDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="createdBy" type="tns:employee">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="created_by"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="expectedDate" type="xs:dateTime"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" type="tns:inventoryTransaction">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="purchase_order_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="approvedBy" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="approvedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="createdBy" nillable="true" type="tns:employee">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="created_by"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="expectedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="purchase_order_id">
+                            <spl:ignoreOtherElements>
                                     "purchaseOrder"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element minOccurs="0" name="paymentAmount" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="paymentDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="paymentMethod" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" type="tns:purchaseOrderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="purchase_order_id">
-              <spl:ignoreOtherElements>
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="paymentAmount" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="paymentDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="paymentMethod" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" nillable="true" type="tns:purchaseOrderDetailer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="purchase_order_id">
+                            <spl:ignoreOtherElements>
                                     "purchaseOrder"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="purchaseOrderStatus" type="tns:purchaseOrderStatus">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="purchaseOrderStatus" nillable="true" type="tns:purchaseOrderStatus">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="status_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="shippingFee" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="submittedBy" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="submittedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="supplier" nillable="true" type="tns:supplier">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="supplier_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="taxes" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="inventoryTransaction">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="status_id"/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="inventory_transactions"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="shippingFee" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="submittedBy" type="xs:int"/>
-      <xs:element minOccurs="0" name="submittedDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="supplier" type="tns:supplier">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="supplier_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="taxes" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="inventoryTransaction">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="inventory_transactions"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="comments" type="xs:string"/>
-      <xs:element minOccurs="0" name="id" type="xs:long">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="inventoryTransactionTypes" type="tns:inventoryTransactionType">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="transaction_type"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="customer_order_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="product" type="tns:product">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="product_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="purchaseOrder" type="tns:purchaseOrder">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="purchase_order_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" type="tns:purchaseOrderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="inventory_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="comments" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="inventoryTransactionTypes" nillable="true" type="tns:inventoryTransactionType">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="transaction_type"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="customer_order_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="product" nillable="true" type="tns:product">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="product_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="purchase_order_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" nillable="true" type="tns:purchaseOrderDetailer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="inventory_id">
+                            <spl:ignoreOtherElements>
                                     "inventoryTransaction"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="quantity" type="xs:int"/>
-      <xs:element minOccurs="0" name="transactionCreatedDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="transactionModifiedDate" type="xs:dateTime"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="inventoryTransactionType">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="inventory_transaction_types"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="quantity" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="transactionCreatedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="transactionModifiedDate" nillable="true" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="inventoryTransactionType">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="inventory_transaction_types"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" type="tns:inventoryTransaction">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="transaction_type">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="transaction_type">
+                            <spl:ignoreOtherElements>
                                     "inventoryTransactionType"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="typeName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="product">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="products"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="product">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="products"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="attachments" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="category" type="xs:string"/>
-      <xs:element minOccurs="0" name="description" type="xs:string"/>
-      <xs:element name="discontinued" type="xs:boolean"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" type="tns:inventoryTransaction">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="product_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="attachments" nillable="true" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="category" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+            <xs:element name="discontinued" nillable="true" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <annox:annotate>@javax.persistence.Column(columnDefinition = "boolean default 'false'")</annox:annotate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="product_id">
+                            <spl:ignoreOtherElements>
                                     "product"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="listPrice" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="minimumReorderQuantity" type="xs:int"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" type="tns:orderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="product_id">
-              <spl:ignoreOtherElements>
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="listPrice" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="minimumReorderQuantity" nillable="true" type="xs:int"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" nillable="true" type="tns:orderDetailer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="product_id">
+                            <spl:ignoreOtherElements>
                                     "product"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="productCode" type="xs:string"/>
-      <xs:element minOccurs="0" name="productName" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" type="tns:purchaseOrderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="product_id">
-              <spl:ignoreOtherElements>
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="productCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="productName" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrderDetailer" nillable="true" type="tns:purchaseOrderDetailer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="product_id">
+                            <spl:ignoreOtherElements>
                                     "product"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="quantityPerUnit" type="xs:string"/>
-      <xs:element minOccurs="0" name="reorderLevel" type="xs:int"/>
-      <xs:element minOccurs="0" name="standardCost" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="supplierIds" type="xs:string"/>
-      <xs:element minOccurs="0" name="targetLevel" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="orderDetailer">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="order_details"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="quantityPerUnit" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="reorderLevel" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="standardCost" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="supplierIds" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="targetLevel" nillable="true" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="orderDetailer">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="order_details"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="dateAllocated" type="xs:dateTime"/>
-      <xs:element name="discount" type="xs:double" maxOccurs="1" minOccurs="0"/>
-      <xs:element minOccurs="0" name="inventoryId" type="xs:int"/>
-      <xs:element minOccurs="0" name="order" type="tns:order">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="dateAllocated" nillable="true" type="xs:dateTime"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="discount" nillable="true" type="xs:double"/>
+            <xs:element minOccurs="0" name="inventoryId" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="order_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="orderDetailerStatus" nillable="true" type="tns:orderDetailerStatus">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="status_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="product" nillable="true" type="tns:product">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="product_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="purchaseOrderId" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="quantity" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="unitPrice" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="orderDetailerStatus">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="order_id"/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="order_details_status"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="orderDetailerStatus" type="tns:orderDetailerStatus">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="status_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="product" type="tns:product">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="product_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="purchaseOrderId" type="xs:int"/>
-      <xs:element minOccurs="0" name="quantity" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="unitPrice" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="orderDetailerStatus">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="order_details_status"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" type="tns:orderDetailer">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="status_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" nillable="true" type="tns:orderDetailer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="status_id">
+                            <spl:ignoreOtherElements>
                                     "orderDetailerStatus"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="statusName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="purchaseOrderDetailer">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="purchase_order_details"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="statusName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="purchaseOrderDetailer">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="purchase_order_details"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="dateReceived" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="inventoryTransaction" type="tns:inventoryTransaction">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="dateReceived" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="inventory_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="postedToInventory" nillable="true" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <annox:annotate>@javax.persistence.Column(columnDefinition = "boolean default 'false'")</annox:annotate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="product" nillable="true" type="tns:product">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="product_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="purchase_order_id"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="quantity" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="unitCost" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="purchaseOrderStatus">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="inventory_id"/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="purchase_order_status"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element name="postedToInventory" type="xs:boolean" maxOccurs="1" minOccurs="0"/>
-      <xs:element minOccurs="0" name="product" type="tns:product">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="product_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="purchaseOrder" type="tns:purchaseOrder">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="purchase_order_id"/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="quantity" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="unitCost" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="purchaseOrderStatus">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="purchase_order_status"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" type="tns:purchaseOrder">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="status_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="status_id">
+                            <spl:ignoreOtherElements>
                                     "purchaseOrderStatus"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="status" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="supplier">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="suppliers"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="supplier">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="suppliers"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="address" type="xs:string"/>
-      <xs:element minOccurs="0" name="attachments" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="businessPhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="city" type="xs:string"/>
-      <xs:element minOccurs="0" name="company" type="xs:string"/>
-      <xs:element minOccurs="0" name="countryRegion" type="xs:string"/>
-      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
-      <xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
-      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
-      <xs:element minOccurs="0" name="homePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="jobTitle" type="xs:string"/>
-      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
-      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" type="tns:purchaseOrder">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="supplier_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="attachments" nillable="true" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="businessPhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="company" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="countryRegion" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="faxNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="homePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="jobTitle" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="mobilePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="supplier_id">
+                            <spl:ignoreOtherElements>
                                     "supplier"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="stateProvince" type="xs:string"/>
-      <xs:element minOccurs="0" name="webPage" type="xs:string"/>
-      <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="invoice">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="invoices"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                        </spl:one2many>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="webPage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="invoice">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="invoices"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="amountDue" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="invoiceDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="order" type="tns:order">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="amountDue" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="dueDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="invoiceDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:many2one fk="order_id"/>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="shipping" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="tax" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="orderStatus">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:many2one fk="order_id"/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="order_status"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="shipping" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="tax" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="orderStatus">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="order_status"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="status_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="status_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "orderStatus"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="statusName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="orderTaxStatus">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="order_tax_status"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="statusName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="orderTaxStatus">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="order_tax_status"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="tax_status_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="tax_status_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "orderTaxStatus"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="taxStatusName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="shipper">
-    <xs:annotation>
-      <xs:appinfo>
-        <spl:entity>
-          <orm:table name="shippers"/>
-        </spl:entity>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long">
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="taxStatusName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="shipper">
         <xs:annotation>
-          <xs:appinfo>
-            <spl:id/>
-          </xs:appinfo>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="shippers"/>
+                </spl:entity>
+            </xs:appinfo>
         </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="address" type="xs:string"/>
-      <xs:element minOccurs="0" name="attachments" type="xs:base64Binary"/>
-      <xs:element minOccurs="0" name="businessPhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="city" type="xs:string"/>
-      <xs:element minOccurs="0" name="company" type="xs:string"/>
-      <xs:element minOccurs="0" name="countryRegion" type="xs:string"/>
-      <xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
-      <xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
-      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
-      <xs:element minOccurs="0" name="homePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="jobTitle" type="xs:string"/>
-      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
-      <xs:element minOccurs="0" name="mobilePhone" type="xs:string"/>
-      <xs:element minOccurs="0" name="notes" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="order" type="tns:order">
-        <xs:annotation>
-          <xs:appinfo>
-            <spl:one2many fk="shipper_id">
-              <spl:ignoreOtherElements>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="attachments" nillable="true" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="businessPhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="company" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="countryRegion" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="faxNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="homePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="jobTitle" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="mobilePhone" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
+                <xs:annotation>
+                                        
+                    <xs:appinfo>
+                                                
+                        <spl:one2many fk="shipper_id">
+                                                        
+                            <spl:ignoreOtherElements>
                                     "shipper"
                             </spl:ignoreOtherElements>
-            </spl:one2many>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" name="stateProvince" type="xs:string"/>
-      <xs:element minOccurs="0" name="webPage" type="xs:string"/>
-      <xs:element minOccurs="0" name="zipPostalCode" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+                                                    
+                        </spl:one2many>
+                                            
+                    </xs:appinfo>
+                                    
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="webPage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
