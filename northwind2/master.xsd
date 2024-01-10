@@ -101,13 +101,13 @@
                 </xs:annotation>
                             
             </xs:element>
-            <xs:element minOccurs="0" name="employee" nillable="true" type="tns:employee">
+            <xs:element minOccurs="0" name="person" nillable="true" type="tns:person">
                                 
                 <xs:annotation>
                                         
                     <xs:appinfo>
                                                 
-                        <spl:many2one fk="employee_id"/>
+                        <spl:many2one fk="person_id"/>
                                             
                     </xs:appinfo>
                                     
@@ -226,11 +226,12 @@
             <xs:element minOccurs="0" name="taxes" nillable="true" type="xs:decimal"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="employee">
+    <xs:complexType name="person">
+        <!--  this was and is conceptually 'employee' -->
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="employees"/>
+                    <orm:table name="persons"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -261,10 +262,10 @@
                                         
                     <xs:appinfo>
                                                 
-                        <spl:one2many fk="employee_id">
+                        <spl:one2many fk="person_id">
                                                         
                             <spl:ignoreOtherElements>
-                                    "employee"
+                                    "person"
                             </spl:ignoreOtherElements>
                                                     
                         </spl:one2many>
@@ -308,7 +309,7 @@
             <xs:element minOccurs="0" name="approvedBy" nillable="true" type="xs:int"/>
             <xs:element minOccurs="0" name="approvedDate" nillable="true" type="xs:dateTime"/>
             <xs:element minOccurs="0" name="creationDate" nillable="true" type="xs:dateTime"/>
-            <xs:element minOccurs="0" name="createdBy" nillable="true" type="tns:employee">
+            <xs:element minOccurs="0" name="createdBy" nillable="true" type="tns:person">
                 <xs:annotation>
                     <xs:appinfo>
                         <spl:many2one fk="created_by"/>
@@ -889,4 +890,6 @@
             <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:attribute name="optimize" type="xs:string"></xs:attribute>
 </xs:schema>
