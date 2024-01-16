@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
+    <!--  Splicer/Jumbo Inc. confidential  -->
+    <!--  testing workflow 2  -->
+    <xs:complexType name="person">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="person"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                        
+                <xs:annotation>
+                              
+                    <xs:appinfo>
+                                    
+                        <spl:id/>
+                                  
+                    </xs:appinfo>
+                            
+                </xs:annotation>
+                      
+            </xs:element>
+            <xs:element name="avatar" nillable="true" type="xsd:base64Binary"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:attribute name="optimize" type="xs:string"/>
+</xs:schema>

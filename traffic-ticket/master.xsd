@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
+    <!--  Splicer/Jumbo Inc. confidential  -->
+    <!--  testing workflow 2  -->
+    <xs:complexType name="person">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="person"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="avatar" nillable="true" type="xsd:base64Binary"/>
+            <xs:element name="address" nillable="true" type="tns:address">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="ADDRE_PERSON_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="vehicle" nillable="true" type="tns:vehicle">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:one2many fk="PERSON_CAR_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="vehicle">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="vehicle"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="make" nillable="true" type="xs:string"/>
+            <xs:element name="model" nillable="true" type="xs:string"/>
+            <xs:element name="manufacturer" nillable="true" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="person" nillable="true" type="tns:person">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="PERSON_CAR_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="trafficTicket">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="trafficTicket"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ticketNumber" nillable="true" type="xs:string"/>
+            <xs:element name="vehicle" nillable="true" type="tns:vehicle">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one fk="VEHICLE_TRAFFICTICKET_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="address">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="address"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="street" nillable="true" type="xs:string"/>
+            <xs:element name="city" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:attribute name="optimize" type="xs:string"/>
+</xs:schema>
