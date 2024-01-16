@@ -1,6 +1,6 @@
 # Models-sample
 
-This project includes sample Splicer data models.
+This project contains sample Splicer data models.
 
 - **platform**: This is our baseline model.  Start with this one to create a data model from scratch.  Assume the Person object is the login user for your system.  
 - **traffic-ticket**: A simple example of how we might model a traffic ticket website.
