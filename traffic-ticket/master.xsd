@@ -17,19 +17,29 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="firstName" nillable="true" type="xs:string"/>
+            <xs:element name="lastName" nillable="true" type="xs:string"/>
             <xs:element name="avatar" nillable="true" type="xsd:base64Binary"/>
             <xs:element name="address" nillable="true" type="tns:address">
                 <xs:annotation>
                     <xs:appinfo>
-                        <spl:many2one field="" fk="ADDRESS_PERSON_ID"/>
+                        <spl:many2one field="street" fk="ADDRESS_PERSON_ID"/>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="vehicle" nillable="true" type="tns:vehicle">
                 <xs:annotation>
+                                                            
+                    
                     <xs:appinfo>
-                        <spl:one2many field="" fk="PERSON_CAR_ID"/>
+                                                                        
+                        
+                        <spl:one2many field="model" fk="PERSON_CAR_ID"/>
+                                                                    
+                    
                     </xs:appinfo>
+                                                        
+                
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
@@ -44,21 +54,37 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                                
                 <xs:annotation>
+                                        
                     <xs:appinfo>
+                                                
                         <spl:id/>
+                                            
                     </xs:appinfo>
+                                    
                 </xs:annotation>
+                            
             </xs:element>
             <xs:element name="make" nillable="true" type="xs:string"/>
             <xs:element name="model" nillable="true" type="xs:string"/>
             <xs:element name="manufacturer" nillable="true" type="xs:string"/>
             <xs:element maxOccurs="1" minOccurs="1" name="person" nillable="true" type="tns:person">
+                                
                 <xs:annotation>
+                                                            
+                    
                     <xs:appinfo>
-                        <spl:many2one field="" fk="PERSON_CAR_ID"/>
+                                                                        
+                        
+                        <spl:many2one field="lastName" fk="PERSON_CAR_ID"/>
+                                                                    
+                    
                     </xs:appinfo>
+                                                        
+                
                 </xs:annotation>
+                            
             </xs:element>
         </xs:sequence>
     </xs:complexType>
@@ -81,9 +107,13 @@
             <xs:element name="ticketNumber" nillable="true" type="xs:string"/>
             <xs:element name="vehicle" nillable="true" type="tns:vehicle">
                 <xs:annotation>
+                                        
                     <xs:appinfo>
-                        <spl:many2one field="" fk="VEHICLE_TRAFFICTICKET_ID"/>
+                                                
+                        <spl:many2one field="model" fk="VEHICLE_TRAFFICTICKET_ID"/>
+                                            
                     </xs:appinfo>
+                                    
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
