@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://models/" version="1.0">
     <xs:complexType name="customer">
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="customers"/>
+                    <orm:table name="customer"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -33,28 +31,14 @@
             <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
                 <xs:annotation>
-                                                            
-                    
                     <xs:appinfo>
-                                                                        
-                        
                         <spl:one2many fk="customer_id">
-                                                                                    
-                            
                             <spl:ignoreOtherElements>
                                     "customer"
                             </spl:ignoreOtherElements>
-                                                                                
-                        
                         </spl:one2many>
-                                                                    
-                    
                     </xs:appinfo>
-                                                            
-                    
                     <xs:documentation>test documentation</xs:documentation>
-                                                        
-                
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
@@ -66,56 +50,33 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="orders"/>
+                    <orm:table name="order"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
             <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:id/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="customer" nillable="true" type="tns:customer">
-                                
                 <xs:annotation>
-                                                            
-                    
                     <xs:appinfo>
-                                                                        
-                        
                         <spl:many2one fk="customer_id"/>
-                                                                    
-                    
                     </xs:appinfo>
-                                                        
-                
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="employee" nillable="true" type="tns:employee">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:many2one fk="employee_id"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="inventoryTransaction" nillable="true" type="tns:inventoryTransaction">
-                                
                 <xs:annotation>
                                         
                     <xs:appinfo>
@@ -131,10 +92,8 @@
                     </xs:appinfo>
                                     
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="invoice" nillable="true" type="tns:invoice">
-                                
                 <xs:annotation>
                                         
                     <xs:appinfo>
@@ -150,12 +109,10 @@
                     </xs:appinfo>
                                     
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
             <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:dateTime"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="orderDetailer" nillable="true" type="tns:orderDetailer">
-                                
                 <xs:annotation>
                                         
                     <xs:appinfo>
@@ -171,33 +128,20 @@
                     </xs:appinfo>
                                     
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="orderStatus" nillable="true" type="tns:orderStatus">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:many2one fk="status_id"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="orderTaxStatus" nillable="true" type="tns:orderTaxStatus">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:many2one fk="tax_status_id"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="paidDate" nillable="true" type="xs:dateTime"/>
             <xs:element minOccurs="0" name="paymentType" nillable="true" type="xs:string"/>
@@ -209,17 +153,11 @@
             <xs:element minOccurs="0" name="shipZipPostalCode" nillable="true" type="xs:string"/>
             <xs:element minOccurs="0" name="shippedDate" nillable="true" type="xs:dateTime"/>
             <xs:element minOccurs="0" name="shipper" nillable="true" type="tns:shipper">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:many2one fk="shipper_id"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element minOccurs="0" name="shippingFee" nillable="true" type="xs:decimal"/>
             <xs:element minOccurs="0" name="taxRate" nillable="true" type="xs:double"/>
@@ -230,7 +168,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="employees"/>
+                    <orm:table name="employee"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -258,19 +196,13 @@
             <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:one2many fk="employee_id">
-                                                        
                             <spl:ignoreOtherElements>
                                     "employee"
                             </spl:ignoreOtherElements>
-                                                    
                         </spl:one2many>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="purchaseOrder" nillable="true" type="tns:purchaseOrder">
@@ -293,7 +225,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="purchase_orders"/>
+                    <orm:table name="purchaseOrder"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -366,7 +298,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="inventory_transactions"/>
+                    <orm:table name="inventoryTransaction"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -431,7 +363,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="inventory_transaction_types"/>
+                    <orm:table name="inventoryTransactionType"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -461,7 +393,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="products"/>
+                    <orm:table name="product"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -531,7 +463,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="order_details"/>
+                    <orm:table name="orderDetailer"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -580,7 +512,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="order_details_status"/>
+                    <orm:table name="orderDetailerStatus"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -610,7 +542,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="purchase_order_details"/>
+                    <orm:table name="purchaseOrderDetailer"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -659,7 +591,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="purchase_order_status"/>
+                    <orm:table name="purchaseOrderStatus"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -689,7 +621,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="suppliers"/>
+                    <orm:table name="supplier"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -735,7 +667,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="invoices"/>
+                    <orm:table name="invoice"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -769,7 +701,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="order_status"/>
+                    <orm:table name="orderStatus"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -783,19 +715,13 @@
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:one2many fk="status_id">
-                                                        
                             <spl:ignoreOtherElements>
                                     "orderStatus"
                             </spl:ignoreOtherElements>
-                                                    
                         </spl:one2many>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="statusName" nillable="true" type="xs:string"/>
@@ -805,7 +731,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="order_tax_status"/>
+                    <orm:table name="orderTaxStatus"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -819,19 +745,13 @@
             </xs:element>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:one2many fk="tax_status_id">
-                                                        
                             <spl:ignoreOtherElements>
                                     "orderTaxStatus"
                             </spl:ignoreOtherElements>
-                                                    
                         </spl:one2many>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="taxStatusName" nillable="true" type="xs:string"/>
@@ -841,7 +761,7 @@
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="shippers"/>
+                    <orm:table name="shipper"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>
@@ -869,19 +789,13 @@
             <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="order" nillable="true" type="tns:order">
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:one2many fk="shipper_id">
-                                                        
                             <spl:ignoreOtherElements>
                                     "shipper"
                             </spl:ignoreOtherElements>
-                                                    
                         </spl:one2many>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="stateProvince" nillable="true" type="xs:string"/>
@@ -889,6 +803,37 @@
             <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:attribute name="optimize" type="xs:string"></xs:attribute>
+    <xs:attribute name="optimize" type="xs:string"/>
+    <xs:complexType name="person">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="person"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="customer" nillable="true" type="tns:customer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one field="firstName" fk="CUSTOMER_PERSON_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="employee" nillable="true" type="tns:employee">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:many2one field="firstName" fk="EMPLOYEE_PERSON_ID"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
