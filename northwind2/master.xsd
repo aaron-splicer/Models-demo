@@ -889,4 +889,6 @@
             <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:attribute name="optimize" type="xs:string"></xs:attribute>
 </xs:schema>
