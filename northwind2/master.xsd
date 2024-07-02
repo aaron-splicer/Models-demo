@@ -890,11 +890,11 @@
             <xs:element minOccurs="0" name="zipPostalCode" nillable="true" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-        <xs:complexType name="person">
+    <xs:complexType name="splicerLogin">
         <xs:annotation>
             <xs:appinfo>
                 <spl:entity>
-                    <orm:table name="person"/>
+                    <orm:table name="splicerLogin"/>
                 </spl:entity>
             </xs:appinfo>
         </xs:annotation>

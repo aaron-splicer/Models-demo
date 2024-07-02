@@ -23,7 +23,6 @@
                 </xs:annotation>
                       
             </xs:element>
-            <xs:element name="avatar" nillable="true" type="xsd:base64Binary"/>
         </xs:sequence>
     </xs:complexType>
     <xs:attribute name="optimize" type="xs:string"/>
