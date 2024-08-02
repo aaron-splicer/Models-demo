@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:spl="http://splicer.io" xmlns:splicer="http://splicer.models" xmlns:sports="http://sports.models" xmlns:tns="http://models/" targetNamespace="http://models/" version="1.0">
-
     <xs:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="person">
         <xs:annotation>
             <xs:appinfo>
@@ -940,13 +939,9 @@
             </xs:element>
             <xs:element minOccurs="0" name="attributeDefinition" nillable="true" type="tns:attributeDefinition">
                 <xs:annotation xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML">
-                                        
                     <xs:appinfo>
-                                                
                         <spl:many2one fk="attribute_definition_id"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" name="cohortDefinition" nillable="true" type="tns:cohortDefinition">
@@ -979,17 +974,11 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
-                                
                 <xs:annotation>
-                                        
                     <xs:appinfo>
-                                                
                         <spl:id/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
             <xs:element xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" minOccurs="0" name="attributeDefinitionId" nillable="true" type="xs:long"/>
             <xs:element xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" minOccurs="0" name="attributeDescription" nillable="true" type="xs:string"/>
@@ -997,17 +986,11 @@
             <xs:element xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" minOccurs="0" name="attributeSyntax" nillable="true" type="xs:string"/>
             <xs:element xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML" name="attributeType" nillable="true" type="xs:long"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="cohortAttribute" nillable="true" type="tns:cohortAttribute">
-                                
                 <xs:annotation xmlns:ha="http://annox.dev.java.net/org.hibernate.annotations" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:pxml="https://github.com/ilyakharlamov/pure-xsl/parseStringAsXML">
-                                        
                     <xs:appinfo>
-                                                
                         <spl:one2many mappedBy="id.attributeDefinition"/>
-                                            
                     </xs:appinfo>
-                                    
                 </xs:annotation>
-                            
             </xs:element>
         </xs:sequence>
     </xs:complexType>
@@ -2921,4 +2904,23 @@
         </xs:sequence>
     </xs:complexType>
     <xs:attribute name="optimize" type="xs:string"/>
+    <xs:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="splicerLogin">
+        <xs:annotation>
+            <xs:appinfo>
+                <spl:entity>
+                    <orm:table name="splicerLogin"/>
+                </spl:entity>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="id" nillable="true" type="xs:long">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <spl:id/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="person" nillable="true" type="tns:person"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
